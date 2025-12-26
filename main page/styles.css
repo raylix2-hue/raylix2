@@ -1,0 +1,1218 @@
+:root {
+    --bg-color: #ffffff;
+    --grid-bg: #f8f9fa;
+    --primary-pink: #fd3e81;
+    /* Couleur précise du badge */
+    --primary-blue: #4daaf2;
+    --primary-green: #4fffa8;
+    --text-dark: #1a1a1a;
+    --text-light: #ffffff;
+    --card-radius: 20px;
+    --font-main: 'Outfit', sans-serif;
+    --gap: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--grid-bg);
+    /* Motif grille subtil en arrière-plan */
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: var(--text-dark);
+    padding: 20px;
+}
+
+/* --- Header --- */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    margin-bottom: 30px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    font-weight: 800;
+    color: white;
+    background-color: var(--primary-pink);
+    padding: 5px 15px;
+    /* Forme de bulle de BD approximative */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 25% 85%, 15% 100%, 15% 85%, 0% 85%);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-style: italic;
+    line-height: 1.2;
+    padding-bottom: 15px;
+    text-decoration: none;
+    /* Espace pour la queue de bulle */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 600;
+    margin: 0 15px;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--primary-pink);
+}
+
+.social-icons a {
+    color: #4a5568;
+    margin-left: 15px;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-2px);
+    color: var(--text-dark);
+}
+
+/* --- Burger Menu & Mobile Nav --- */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    margin-left: 20px;
+}
+
+.burger-menu span {
+    width: 100%;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+    transition: all 0.3s linear;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    transition: right 0.3s ease-in-out;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 600;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+}
+
+/* Animation Burger */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+
+/* --- Grid System --- */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 280px 240px 220px;
+    /* Hauteurs fixes pour effet Bento propre */
+    gap: var(--gap);
+    /* auto-flow: dense; retiré car placement manuel */
+}
+
+/* Cartes Globales */
+.card {
+    background: white;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Specific Cards Layout --- */
+
+/* Carte 1: NICOLAS (Badge vertical) - Colonne 1, prend 2 rangées */
+.card-badge {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    background: linear-gradient(135deg, #cc99ff 0%, #ff66b2 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    color: white;
+}
+
+/* Carte 2: Vidéos Tech (Rose) - Colonne 2, Rangée 1 */
+.card-videos-tech {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    background: var(--primary-pink);
+    color: white;
+}
+
+/* Carte 3: Vidéos Fuze (Bleu) - Colonne 3, Rangée 1 */
+.card-videos-fuze {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Carte 4: Twitter (Mockup) - Colonne 2, Rangée 2 */
+.card-twitter {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background: var(--primary-blue);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Carte 5: Marquee (Texte défilant) - Colonne 3, Rangée 2 */
+.card-marquee {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    background: white;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    /* Motif texte rouge répété en background un peu */
+}
+
+/* Carte 6: Instagram (Mockup vert/blanc) - Colonne 4, Rangée 1-2 (prend 2 slots hauteur ?) Non d'après image c'est juste Colonne 4, Rangée 1 */
+/* Correction d'après l'image: Instagram est en haut à droite. Mais l'équipe est en dessous. 
+   Analysons l'image :
+   Col 1 (Haute): Nicolas
+   Col 2 (Haute): Vidéo Tech
+   Col 3 (Haute): Vidéo Fuze
+   Col 4 (Haute): Instagram (semble prendre 1 slot haut + un bout ou c'est juste une carte haute ?)
+   Ligne 2 :
+   Col 2: Twitter
+   Col 3: Marquee
+   Ligne 3 :
+   Col 1: Youtube/Social
+   Col 2-3: Studio (large)
+   Col 4 (Bas): Équipe (semble prendre toute la hauteur restante à droite, ou demarre ligne 2)
+   
+   Ajustons pour coller à l'image plus précisément :
+   L'image a 4 colonnes visuelles.
+   Col 1: Nicolas (Grand vertical, ~2.5U de haut), Youtube (Petit carré, ~1U)
+   Col 2: Vidéo Tech (Rect, ~1U), Twitter (Carré, ~1.5U), Studio (Large, ~1.5U avec col 3)
+   Col 3: Vidéo Fuze (Rect, ~1U), Marquee (Rect, ~1.5U), Studio (Suite)
+   Col 4: Instagram (Grand Carré/Rect, ~1.5U), Équipe (Grand Vertical, ~2.5U)
+   
+   C'est complexe d'avoir les ratios exacts sans grid précise. On va approximer.
+*/
+
+.card-badge {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.card-videos-tech {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.card-videos-fuze {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.card-instagram {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+/* On le laisse carré pour l'instant */
+
+.card-twitter {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.card-marquee {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.card-social-links {
+    grid-column: 1;
+    grid-row: 3;
+    background: var(--primary-pink);
+}
+
+.card-studio {
+    grid-column: 2 / span 2;
+    grid-row: 3;
+    background: var(--primary-green);
+}
+
+.card-team {
+    grid-column: 4;
+    grid-row: 2 / span 2;
+    background: var(--primary-pink);
+}
+
+/* Team doit commencer row 2 pour s'aligner sous Instagram, et descendre jusqu'en bas */
+
+
+/* --- Styling Content --- */
+
+/* Badge NICOLAS */
+.badge-header {
+    background: transparent;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.lanyard {
+    width: 20px;
+    height: 60px;
+    background: #4fffa8;
+    /* Cordon vert */
+    margin-top: -30px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.lanyard::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: silver;
+    /* Clip métal */
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+.badge-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-name {
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.badge-role {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.badge-tags {
+    list-style: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.badge-tags li::before {
+    content: '• ';
+}
+
+.badge-photo {
+    margin-top: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    align-self: center;
+    position: relative;
+}
+
+.badge-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Effet cercle coloré derrière photo */
+.badge-photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.badge-footer {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    text-align: center;
+}
+
+.barcode {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    transform: scaleY(0.6);
+    /* Effet code barre */
+}
+
+
+/* Vidéos Cards */
+.card-header {
+    background: transparent;
+    padding: 10px 15px;
+}
+
+.card-header h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.video-preview {
+    padding: 0 10px 10px;
+}
+
+.yt-mockup {
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    color: black;
+}
+
+.yt-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.yt-avatar {
+    width: 30px;
+    height: 30px;
+    background: #333;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.fuze-avatar {
+    background: red;
+}
+
+.yt-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+    flex-grow: 1;
+}
+
+.yt-name {
+    font-weight: bold;
+}
+
+.yt-sub {
+    color: gray;
+}
+
+.yt-btn {
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.yt-thumbnails {
+    display: flex;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.thumb {
+    width: 60px;
+    height: 40px;
+    background: #ddd;
+    border-radius: 5px;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.thumb:hover {
+    transform: scale(1.05);
+}
+
+
+/* Phones Mockups (Instagram & Twitter) */
+.phone-mockup {
+    background: white;
+    border-radius: 25px;
+    border: 8px solid #333;
+    /* Cadre téléphone */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.phone-mockup.dark {
+    background: #15202b;
+    /* Twitter dark bg */
+    border-color: #333;
+    color: white;
+}
+
+.phone-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* Instagram Content */
+.insta-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.verified-badge {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #3897f0;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.insta-stats-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
+.insta-pfp img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 2px;
+    border: 2px solid #fd3e81;
+    /* Insta ring */
+}
+
+.stat-item span {
+    display: block;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.insta-bio {
+    padding: 10px;
+    font-size: 0.7rem;
+    line-height: 1.3;
+}
+
+/* Twitter Content */
+.twitter-profile {
+    position: relative;
+}
+
+.twitter-banner {
+    height: 60px;
+    background: #333;
+}
+
+.twitter-pfp {
+    position: absolute;
+    top: 40px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #15202b;
+    overflow: hidden;
+}
+
+.twitter-pfp img {
+    width: 100%;
+    height: 100%;
+}
+
+.twitter-info {
+    margin-top: 35px;
+    /* Espace pour pfp */
+    padding: 0 15px 15px;
+    font-size: 0.8rem;
+}
+
+.twitter-info h4 {
+    margin-bottom: 0;
+}
+
+.handle {
+    color: #8899a6;
+    font-size: 0.75rem;
+}
+
+.bio {
+    margin: 10px 0;
+    font-size: 0.75rem;
+}
+
+.loc-date {
+    color: #8899a6;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.stats span {
+    margin-right: 10px;
+    font-size: 0.75rem;
+    color: #8899a6;
+}
+
+.stats strong {
+    color: white;
+}
+
+/* Marquee */
+.card-marquee {
+    position: relative;
+}
+
+.marquee-content {
+    white-space: nowrap;
+    position: absolute;
+    font-size: 40px;
+    font-weight: 900;
+    color: #ffffffd7;
+    /* Rose très pâle */
+    font-style: italic;
+    transform: rotate(-10deg) scale(1.5);
+    line-height: 0.8;
+    background-color: #fd3e81d7;
+
+}
+
+.marquee-content span {
+    display: block;
+}
+
+/* Équipe */
+.card-team {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header-blue {
+    background: #4daaf2;
+    /* Bleu header équipe */
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
+
+.team-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    /* Légère transparence sur fond rose */
+    padding: 10px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.team-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.6rem;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.team-avatar img {
+    width: 100%;
+}
+
+.team-avatar.black {
+    background: black;
+    color: white;
+}
+
+.team-avatar.pixel {
+    background: #eee;
+}
+
+.team-avatar.dark-icon {
+    background: #333;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.team-info {
+    color: white;
+    font-size: 0.8rem;
+}
+
+.team-info h4 {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.team-info span {
+    font-weight: 300;
+}
+
+.team-info.right-align {
+    text-align: right;
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+/* Social Links Bottom Left */
+.card-social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 3px solid black;
+    box-shadow: 3px 3px 0px black;
+    transition: transform 0.2s;
+}
+
+.social-circle:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px black;
+}
+
+.social-circle.youtube {
+    background: #4daaf2;
+    color: white;
+}
+
+.social-circle.other {
+    background: #e0e0e0;
+    color: black;
+}
+
+/* Studio */
+.card-studio {
+    background: #4fffa8;
+    /* Vert */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: visible;
+    /* Pour éléments qui dépassent si besoin */
+}
+
+.studio-content {
+    /* Layout interne */
+    width: 100%;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.studio-content h2 {
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 0.9;
+    color: white;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.studio-logos {
+    position: absolute;
+    left: 40%;
+    top: 10%;
+}
+
+.cube-logo {
+    width: 45px;
+    height: 45px;
+    transform: rotate(15deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 10px;
+}
+
+.cube-logo.green-dark {
+    background: #006400;
+    margin-top: 20px;
+    transform: rotate(-10deg);
+}
+
+.device-mockup {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 10px;
+    width: 150px;
+    height: 90px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff4500;
+    font-weight: bold;
+    transform: skewY(-5deg) rotateY(10deg);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Responsive --- */
+
+/* --- Burger Menu & Mobile Nav --- */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    margin-left: 20px;
+}
+
+.burger-menu span {
+    width: 100%;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+    transition: all 0.3s linear;
+}
+
+/* --- Menu Mobile "iOS 26 / Windows 12" Style --- */
+
+.mobile-nav {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* Centrage exact initial via transform dans l'animation */
+    width: 90%;
+    /* Plus large sur mobile */
+    max-width: 350px;
+    height: auto;
+    /* Fond dégradé subtil et glass */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 255, 0.8));
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border-radius: 30px;
+
+    /* Bordure colorée animée ou style */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+
+    z-index: 1000;
+    /* Au-dessus de l'overlay */
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px 30px;
+    /* Plus d'espace en haut pour le bouton close */
+
+    /* Animation d'entrée Linéaire et Centrée */
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    transition: transform 0.2s linear, opacity 0.2s linear;
+    /* Animation linéaire rapide */
+    pointer-events: none;
+    /* Pas de clic quand caché */
+}
+
+.mobile-nav.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Bouton Fermer */
+.close-menu-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-menu-btn:hover {
+    background: #ff4757;
+    color: white;
+    transform: rotate(90deg);
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    transition: all 0.2s linear;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Texte à gauche, flèche ou autre à droite si besoin */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Ajout d'une petite puce colorée aux liens */
+.mobile-nav a::after {
+    content: '→';
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.2s;
+}
+
+.mobile-nav a:hover {
+    background: linear-gradient(90deg, #fd3e81, #a29bfe);
+    /* Couleurs vives au survol */
+    color: white;
+    transform: scale(1.02);
+    border-color: transparent;
+    padding-left: 25px;
+    box-shadow: 0 5px 15px rgba(253, 62, 129, 0.3);
+}
+
+.mobile-nav a:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mobile-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-social-icons a {
+    /* Styles minimalistes sans cercle */
+    width: 65px;
+    height: 65px;
+    padding: 0 !important;
+    margin: 0;
+    background: transparent;
+    /* Plus de fond blanc */
+    border-radius: 0;
+    /* Plus de cercle */
+
+    display: grid;
+    place-items: center;
+
+    font-size: 2.2rem;
+    /* Icônes encore plus grandes pour compenser */
+    color: #333;
+    /* Couleur de base sombre */
+    line-height: 1;
+    box-shadow: none;
+    /* Plus d'ombre */
+    border: none;
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* Désactiver la flèche '...' des liens standards */
+.mobile-social-icons a::after {
+    content: none;
+    display: none;
+}
+
+.mobile-social-icons a i {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.mobile-social-icons a:hover {
+    transform: translateY(-5px) scale(1.1);
+    background: transparent;
+    /* Pas de fond au survol non plus */
+    color: #fd3e81;
+    /* Juste la couleur qui change (Rose) */
+    box-shadow: none;
+    padding-left: 0 !important;
+    filter: drop-shadow(0 5px 15px rgba(253, 62, 129, 0.4));
+    /* Lueur sur l'icône elle-même */
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(200, 200, 220, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 998;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Animation Burger */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 1024px) {
+    .main-nav>a {
+        display: none;
+        /* Cacher les liens desktop sur tablette/mobile */
+    }
+
+    .burger-menu {
+        display: flex;
+        /* Afficher le burger */
+    }
+
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-auto-rows: minmax(200px, auto);
+    }
+
+    /* Re-map grid pour tablette */
+    .card-badge {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .card-team {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .card-videos-tech {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .card-videos-fuze {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .card-instagram {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .card-twitter {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .card-marquee {
+        grid-column: 1 / 3;
+        grid-row: 4;
+    }
+
+    .card-studio {
+        grid-column: 1 / 3;
+        grid-row: 5;
+    }
+
+    .card-social-links {
+        grid-column: 1 / 3;
+        grid-row: 6;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-header {
+        flex-direction: row;
+        /* Garder logo et burger alignés */
+        padding: 10px 20px;
+        align-items: center;
+    }
+
+    .social-icons {
+        display: none;
+        /* Cacher icônes socials */
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    /* Tout en pile sur mobile */
+    .card,
+    .card-badge,
+    .card-team,
+    .card-videos-tech,
+    .card-videos-fuze,
+    .card-instagram,
+    .card-twitter,
+    .card-marquee,
+    .card-studio,
+    .card-social-links {
+        grid-column: auto;
+        grid-row: auto;
+        margin-bottom: 10px;
+    }
+
+    .burger-menu {
+        margin-left: auto;
+    }
+
+    .main-nav {
+        order: 2;
+        margin: 0;
+        width: auto;
+    }
+}

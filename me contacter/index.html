@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me Contacter - Raylix</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../main page/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="../main page/index.html" class="logo">raylix</a>
+        </div>
+        <nav class="main-nav">
+            <a href="../Mes services/index.html">Mes services</a>
+            <a href="../mon portfolio/index.html">Mes Projets</a>
+            <a href="../mes serveur/index.html">Mes serveur MC</a>
+            <a href="#" style="color: var(--primary-pink);">Me contacter</a>
+            <button class="burger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-reddit"></i></a>
+            <a href="https://www.tiktok.com/@raylix_le_monteuryt?lang=fr"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@Raylix_le-monteur"><i class="fab fa-youtube"></i></a>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-nav">
+        <button class="close-menu-btn" aria-label="Fermer"><i class="fas fa-times"></i></button>
+        <a href="../Mes services/index.html">Mes services</a>
+        <a href="../mon portfolio/index.html">Mes Projets</a>
+        <a href="../mes serveur/index.html">Mes serveurs MC</a>
+        <a href="#" class="active" style="color: var(--primary-pink);">Me contacter</a>
+
+        <div class="mobile-social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="bento-grid-contact">
+
+            <!-- Carte 1: Formulaire -->
+            <div class="card card-contact-form">
+                <div class="contact-form">
+                    <h2>M'envoyer un message</h2>
+                    <form action="https://formsubmit.co/raylix2@outlook.com" method="POST">
+                        <!-- Configuration FormSubmit -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="Nouveau message de Raylix.fr">
+                        <input type="hidden" name="_next" value="https://raylix.fr/merci.html">
+                        <!-- Optionnel: page de remerciement -->
+
+                        <div class="form-group">
+                            <label for="name">Votre Nom</label>
+                            <input type="text" id="name" name="name" placeholder="Comment je dois vous appeler ?"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Votre Email</label>
+                            <input type="email" id="email" name="email" placeholder="Pour vous répondre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="_subject" placeholder="Projet, Question, Autre..."
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Dites-moi tout..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Envoyer <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Carte 2: Infos -->
+            <div class="card card-info">
+                <h3>Infos directes</h3>
+                <br>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>raylix2@outlook.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>France</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Réponse sous 24h</span>
+                </div>
+            </div>
+
+
+
+            <!-- Carte 5: FAQ -->
+            <div class="card card-faq">
+                <h3>FAQ Rapide</h3>
+                <div class="faq-item">
+                    <h4>Quels logiciels utilises-tu ?</h4>
+                    <p>Principalement Premiere Pro et After Effects.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Fais-tu des miniatures ?</h4>
+                    <p>Oui, je peux réaliser des miniatures sur commande.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Tes tarifs ?</h4>
+                    <p>Sur devis uniquement, selon la complexité du projet.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Prends-tu des stagiaires ?</h4>
+                    <p>Non, pas pour le moment.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Comment rejoindre ton serveur ?</h4>
+                    <p>Toutes les infos sont dans l'onglet "Mes serveurs MC".</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Partenariats ?</h4>
+                    <p>Contactez-moi directement via le formulaire ou par mail.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Recrutes-tu pour la Team Esport ?</h4>
+                    <p>Les annonces de recrutement se font exclusivement sur mon Twitter.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <script src="../navbar.js"></script>
+</body>
+
+</html>

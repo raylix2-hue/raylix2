@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raylix - Mes Services</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <!-- Standard CSS -->
+    <link rel="stylesheet" href="../main page/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-nav">
+        <button class="close-menu-btn" aria-label="Fermer"><i class="fas fa-times"></i></button>
+        <a href="#" class="active" style="color: var(--primary-pink);">Mes services</a>
+        <a href="../mon portfolio/index.html">Mes Projets</a>
+        <a href="../mes serveur/index.html">Mes serveurs MC</a>
+        <a href="../me contacter/index.html">Me contacter</a>
+
+        <div class="mobile-social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="../main page/index.html" class="logo">raylix</a>
+        </div>
+        <nav class="main-nav">
+            <a href="#" style="color: var(--primary-pink);">Mes services</a>
+            <a href="../mon portfolio/index.html">Mes Projets</a>
+            <a href="../mes serveur/index.html">Mes serveur MC</a>
+            <a href="../me contacter/index.html">Me contacter</a>
+            <button class="burger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="https://www.tiktok.com/@raylix_le_monteuryt?lang=fr"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@Raylix_le-monteur"><i class="fab fa-youtube"></i></a>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Title -->
+        <div class="services-hero">
+            <h1>CE QUE JE PROPOSE <i class="fas fa-bolt" style="color: #FFD700;"></i></h1>
+            <p>Des prestations de qualité pour vos projets créatifs et techniques.</p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="services-grid">
+
+            <!-- Service 1: Montage -->
+            <div class="service-card pink-glow">
+                <div class="s-icon"><i class="fas fa-film"></i></div>
+                <h2>Montage Vidéo</h2>
+                <p class="s-desc">Dynamique, rythmé et captivant. Idéal pour YouTube, TikTok et Shorts.</p>
+                <div class="price-tag">À partir de <strong>20€</strong></div>
+                <button onclick="showFormulas('montage')" class="btn-service">Voir les Offres</button>
+            </div>
+
+            <!-- Service 2: Dev Web -->
+            <div class="service-card blue-glow">
+                <div class="s-icon"><i class="fas fa-code"></i></div>
+                <h2>Développement Web</h2>
+                <p class="s-desc">Sites vitrines modernes et responsive. HTML, CSS, JS ou CMS.</p>
+                <div class="price-tag">À partir de <strong>80€</strong></div>
+                <button onclick="showFormulas('dev')" class="btn-service">Voir les Offres</button>
+            </div>
+
+            <!-- Service 3: Config -->
+            <div class="service-card green-glow">
+                <div class="s-icon"><i class="fas fa-server"></i></div>
+                <h2>Serveurs Minecraft</h2>
+                <p class="s-desc">Configuration complète de serveurs, plugins et optimisation.</p>
+                <div class="price-tag">À partir de <strong>15€</strong></div>
+                <button onclick="showFormulas('serv')" class="btn-service">Voir les Offres</button>
+            </div>
+
+        </div>
+
+        <!-- DETAILED FORMULAS SECTIONS (Hidden by default) -->
+        <div id="formulas-container" class="formulas-container">
+
+            <!-- Montage Formulas -->
+            <div id="montage-formulas" class="formula-group hidden">
+                <h3 class="f-title">Formules Montage</h3>
+                <div class="f-grid">
+                    <div class="f-card">
+                        <h4>TIKTOK / SHORT</h4>
+                        <div class="f-price">15€</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i>
+                                < 1 min</li>
+                            <li><i class="fas fa-check"></i> Sous-titres dynamiques</li>
+                            <li><i class="fas fa-check"></i> Musique virale</li>
+                        </ul>
+                        <a href="../me contacter/index.html" class="btn-buy">Commander</a>
+                    </div>
+                    <div class="f-card popular">
+                        <div class="badge">POPULAIRE</div>
+                        <h4>VIDÉO YOUTUBE</h4>
+                        <div class="f-price">40€</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 10-15 min</li>
+                            <li><i class="fas fa-check"></i> Storytelling</li>
+                            <li><i class="fas fa-check"></i> Effets & Transitions</li>
+                        </ul>
+                        <a href="../me contacter/index.html" class="btn-buy">Commander</a>
+                    </div>
+                    <div class="f-card">
+                        <h4>PACK 3 SHORTS</h4>
+                        <div class="f-price">35€</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Économisez 10€</li>
+                            <li><i class="fas fa-check"></i> Format identique</li>
+                            <li><i class="fas fa-check"></i> Livraison rapide</li>
+                        </ul>
+                        <a href="../me contacter/index.html" class="btn-buy">Commander</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dev Formulas -->
+            <div id="dev-formulas" class="formula-group hidden">
+                <h3 class="f-title">Formules Développement</h3>
+
+
+
+                <!-- 2. Standard Packages (Modified) -->
+                <div class="f-grid">
+                    <div class="f-card">
+                        <h4>ONE PAGE</h4>
+                        <div class="f-price">80€</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Site CV / Linktree</li>
+                            <li><i class="fas fa-check"></i> Design Simple</li>
+                            <li><i class="fas fa-info-circle"></i> Hébergement non inclus</li>
+                        </ul>
+                        <a href="../me contacter/index.html" class="btn-buy">Commander</a>
+                    </div>
+                    <div class="f-card popular">
+                        <div class="badge">PRO</div>
+                        <h4>PORTFOLIO</h4>
+                        <div class="f-price">150€</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Design Premium</li>
+                            <li><i class="fas fa-check"></i> Animations JS</li>
+                            <li><i class="fas fa-check"></i> Formulaire de contact</li>
+                        </ul>
+                        <a href="../me contacter/index.html" class="btn-buy">Commander</a>
+                    </div>
+                    <div class="f-card">
+                        <h4>E-COMMERCE</h4>
+                        <div class="f-price">Sur Devis</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Boutique Shopify/Woo</li>
+                            <li><i class="fas fa-check"></i> Paiement Stripe</li>
+                            <li><i class="fas fa-check"></i> Panel Admin</li>
+                        </ul>
+                        <a href="../me contacter/index.html" class="btn-buy">Commander</a>
+                    </div>
+                </div>
+
+                <!-- 3. A La Carte Configurator (New Request) -->
+
+                <!-- Server Formulas -->
+                <div id="serv-formulas" class="formula-group hidden">
+                    <h3 class="f-title">Création de Serveur</h3>
+                    <div class="f-grid">
+                        <div class="f-card">
+                            <h4>PETIT SERVEUR</h4>
+                            <div class="f-price">30€</div>
+                            <p style="font-size: 0.8rem; color:#888; margin-bottom: 10px;">Entre amis / Survie</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Installation Spigot/Paper</li>
+                                <li><i class="fas fa-check"></i> Jusqu'à 10 Plugins</li>
+                                <li><i class="fas fa-check"></i> Sécurisation de base</li>
+                                <li><i class="fas fa-check"></i> Optimisation Lag</li>
+                            </ul>
+                            <a href="../me contacter/index.html" class="btn-buy">Commander</a>
+                        </div>
+                        <div class="f-card popular">
+                            <div class="badge">COMPLET</div>
+                            <h4>GRAND SERVEUR</h4>
+                            <div class="f-price">80€</div>
+                            <p style="font-size: 0.8rem; color:#888; margin-bottom: 10px;">Faction / Network / Mini-Jeux
+                            </p>
+                            <ul>
+                                <li><i class="fas fa-check"></i> BungeeCord / Velocity</li>
+                                <li><i class="fas fa-check"></i> Plugins Complexes (30+)</li>
+                                <li><i class="fas fa-check"></i> Permissions Avancées</li>
+                                <li><i class="fas fa-check"></i> Protection Anti-DDoS Pro</li>
+                            </ul>
+                            <a href="../me contacter/index.html" class="btn-buy">Commander</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <script>
+                function showFormulas(type) {
+                    // Hide all first
+                    document.querySelectorAll('.formula-group').forEach(el => {
+                        el.classList.add('hidden');
+                        el.classList.remove('active');
+                    });
+
+                    // Show selected
+                    const target = document.getElementById(type + '-formulas');
+                    if (target) {
+                        target.classList.remove('hidden');
+                        // Small timeout for animation
+                        setTimeout(() => target.classList.add('active'), 10);
+                        // Scroll to it
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+
+                function slide(type, direction) {
+                    const slider = document.getElementById(type + '-slider');
+                    if (!slider) return;
+                    const scrollAmount = 300; // Approx card width + gap
+                    slider.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+                }
+            </script>
+
+            <!-- FAQ or Info -->
+            <div class="info-banner">
+                <i class="fas fa-info-circle"></i>
+                <span>Besoin d'un projet sur mesure ? <a href="../me contacter/index.html">Contactez-moi</a> directement
+                    !</span>
+            </div>
+
+    </main>
+
+    <script src="../navbar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raylix - Mon Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <!-- Standard CSS from Main Page -->
+    <link rel="stylesheet" href="../main page/styles.css">
+    <!-- Portfolio Specific Overrides -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Standard Mobile Nav Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-nav">
+        <button class="close-menu-btn" aria-label="Fermer"><i class="fas fa-times"></i></button>
+        <a href="../Mes services/index.html">Mes services</a>
+        <a href="#" class="active" style="color: var(--primary-pink);">Mes Projets</a>
+        <a href="../mes serveur/index.html">Mes serveurs MC</a>
+        <a href="../me contacter/index.html">Me contacter</a>
+
+        <div class="mobile-social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- Standard Header -->
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="../main page/index.html" class="logo">raylix</a>
+        </div>
+        <nav class="main-nav">
+            <a href="../Mes services/index.html">Mes services</a>
+            <a href="#" style="color: var(--primary-pink);">Mes Projets</a>
+            <a href="../mes serveur/index.html">Mes serveur MC</a>
+            <a href="../me contacter/index.html">Me contacter</a>
+            <button class="burger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-reddit"></i></a>
+            <a href="https://www.tiktok.com/@raylix_le_monteuryt?lang=fr"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@Raylix_le-monteur"><i class="fab fa-youtube"></i></a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="bento-grid-vibrant">
+
+            <!-- ROW 1: HEADER & BEST PROJECT -->
+
+            <!-- 1. Identity / Dashboard (Large) -->
+            <div class="card card-identity-pro">
+                <div class="pro-header">
+                    <div class="p-text">
+                        <h1>MES PROJETS <i class="fas fa-layer-group"></i></h1>
+                        <p>Une collection de sites et plateformes sur mesure.</p>
+                    </div>
+                </div>
+                <div class="pro-stats">
+                    <div class="stat-box">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>15+ Sites</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-star"></i>
+                        <span>100% Satisfait</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Project Highlight: E-commerce (Large) -->
+            <div class="card card-project-main">
+                <div class="project-tag">E-COMMERCE</div>
+                <div class="project-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=800&auto=format&fit=crop');">
+                </div>
+                <div class="project-info">
+                    <h3>Shop Mode</h3>
+                    <p>Boutique en ligne complète avec panier, paiement Stripe et panel admin.</p>
+                    <div class="tech-stack">
+                        <span>React</span><span>Node</span><span>Stripe</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 2: SMALLER PROJECTS -->
+
+            <!-- 3. Vitrine Agency -->
+            <div class="card card-project-small">
+                <div class="project-tag blue">VITRINE</div>
+                <div class="project-mini-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop');">
+                </div>
+                <h4>Agence Immo</h4>
+                <p class="mini-desc">Site élégant pour agence immobilière.</p>
+            </div>
+
+            <!-- 4. Dashboard Admin -->
+            <div class="card card-project-small">
+                <div class="project-tag pink">SAAS</div>
+                <div class="project-mini-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop');">
+                </div>
+                <h4>Panel Admin</h4>
+                <p class="mini-desc">Dashboard de gestion de données.</p>
+            </div>
+
+            <!-- 5. Gaming Site -->
+            <div class="card card-project-small">
+                <div class="project-tag purple">GAMING</div>
+                <div class="project-mini-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800&auto=format&fit=crop');">
+                </div>
+                <h4>Serveur MC</h4>
+                <p class="mini-desc">Site vitrine pour serveur Minecraft.</p>
+            </div>
+
+            <!-- 6. Portfolio Perso -->
+            <div class="card card-project-small">
+                <div class="project-tag green">ART</div>
+                <div class="project-mini-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1545665277-5937489579f2?q=80&w=800&auto=format&fit=crop');">
+                </div>
+                <h4>Portfolio Art</h4>
+                <p class="mini-desc">Galerie interactive pour artiste.</p>
+            </div>
+
+            <!-- ROW 3: CTA & CONTACT -->
+
+            <!-- 7. GitHub Link -->
+            <a href="https://github.com/Raylix" class="card card-social-github">
+                <i class="fab fa-github"></i>
+                <span>Voir le GitHub</span>
+            </a>
+
+            <!-- 8. Contact CTA -->
+            <div class="card card-contact-cta">
+                <h3>Un projet similaire ?</h3>
+                <a href="../me contacter/index.html" class="btn-disk">Me Contacter <i
+                        class="fas fa-paper-plane"></i></a>
+            </div>
+
+        </div>
+
+        </div>
+    </main>
+
+    <script src="../navbar.js"></script>
+    <script>
+        function filterProjects(cat) {
+            // Simplified for interaction
+            alert("Filtrage activé : " + cat);
+        }
+    </script>
+</body>
+
+</html>

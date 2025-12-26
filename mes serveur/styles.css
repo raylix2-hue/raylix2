@@ -1,0 +1,337 @@
+/* Master-Detail Layout Styles */
+
+/* 1. MASTER DISPLAY (Large Top Card) */
+.active-server-display {
+    width: 100%;
+    min-height: 400px;
+    background: #1a1a1a;
+    border-radius: var(--card-radius);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.display-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://wallpapers.com/images/hd/minecraft-shaders-background-1920-x-1080-874251.jpg');
+    /* Default */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.display-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.display-header {
+    margin-bottom: 20px;
+}
+
+.mode-badge {
+    display: inline-block;
+    background: var(--primary-green);
+    color: #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.active-server-display h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.display-body {
+    max-width: 600px;
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    color: #e0e0e0;
+}
+
+.features-list {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.features-list span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+}
+
+.features-list i {
+    color: var(--primary-green);
+    margin-right: 5px;
+}
+
+.action-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.big-ip-btn {
+    background: white;
+    color: #1a1a1a;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    font-family: monospace;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.big-ip-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.status-pill {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.status-online .dot {
+    background: #4fffa8;
+    box-shadow: 0 0 8px #4fffa8;
+}
+
+.status-offline .dot {
+    background: #ff4757;
+}
+
+/* 2. SELECTION STRIP (Mini Carousel) */
+.strip-label {
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    margin-left: 20px;
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+/* Add subtle fade cue for scrolling */
+.carousel-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    background: linear-gradient(to right, transparent, var(--bg-light));
+    pointer-events: none;
+}
+
+.servers-carousel {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 5px;
+    /* Top/bottom padding for shadow */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* Hide scrollbar */
+    flex-grow: 1;
+    scroll-snap-type: x mandatory;
+    /* Snap for mobile */
+}
+
+.servers-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.server-card {
+    min-width: 160px;
+    height: 160px;
+    border-radius: 15px;
+    background: white;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 3px solid transparent;
+    scroll-snap-align: start;
+    /* Snap alignment */
+}
+
+.server-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.server-card.active {
+    border-color: var(--primary-pink);
+    box-shadow: 0 5px 15px rgba(253, 62, 129, 0.3);
+    transform: scale(0.98);
+    /* Slight press effect */
+}
+
+.server-header {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s;
+}
+
+.server-card:hover .server-header {
+    transform: scale(1.1);
+}
+
+.server-mini-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 20px 10px 10px;
+    color: white;
+    text-align: center;
+}
+
+.server-mini-info h4 {
+    margin: 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* Button & Action Polish */
+.big-ip-btn {
+    background: white;
+    color: #1a1a1a;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    font-family: monospace;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 2px solid transparent;
+}
+
+.big-ip-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+    border-color: var(--primary-green);
+}
+
+.big-ip-btn:active {
+    transform: scale(0.95);
+}
+
+/* Animations for Content Update */
+.display-content {
+    animation: fadeInContent 0.5s ease-out;
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .active-server-display {
+        min-height: auto;
+        width: 100%;
+    }
+
+    .display-content {
+        padding: 30px 20px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 100%);
+    }
+
+    .active-server-display h1 {
+        font-size: 2.2rem;
+        margin-top: 10px;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .action-row {
+        flex-direction: column;
+        align-items: stretch;
+        /* Full width buttons */
+        gap: 15px;
+    }
+
+    .big-ip-btn {
+        justify-content: center;
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    .status-pill {
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

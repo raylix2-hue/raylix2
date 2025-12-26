@@ -1,0 +1,370 @@
+/* --- BENTO GRID V2 (Mes Sites) --- */
+
+:root {
+    --primary-pink: #FD3E81;
+    --primary-blue: #4DAAF2;
+    --bg-light: #F8F9FA;
+    --text-dark: #1A1A1A;
+    --card-radius: 20px;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 20px;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Grid Layout */
+.bento-grid-vibrant {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 350px 220px 100px;
+    gap: 20px;
+    margin-top: 20px;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Generic Card Styles */
+.card {
+    background: white;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* 1. Identity Pro (Col 1-2, Row 1) */
+.card-identity-pro {
+    grid-column: span 2;
+    background: linear-gradient(135deg, white 0%, #fff0f5 100%);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(253, 62, 129, 0.1);
+}
+
+.pro-header h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pro-header h1 i {
+    color: var(--primary-pink);
+    font-size: 1.5rem;
+}
+
+.pro-header p {
+    color: #666;
+    margin-top: 5px;
+    font-size: 1.1rem;
+}
+
+.pro-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-box {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: #444;
+}
+
+.stat-box i {
+    color: var(--primary-blue);
+}
+
+/* 2. Main Project (Col 3-4, Row 1) */
+.card-project-main {
+    grid-column: span 2;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s;
+}
+
+.card-project-main:hover .project-image {
+    transform: scale(1.05);
+}
+
+.project-info {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 30px;
+}
+
+.project-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--primary-pink);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    z-index: 2;
+}
+
+.project-info h3 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.project-info p {
+    margin: 5px 0 15px;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 5px;
+}
+
+.tech-stack span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    backdrop-filter: blur(5px);
+}
+
+
+/* 3-6. Small Projects (Row 2) */
+.card-project-small {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-mini-img {
+    height: 140px;
+    background-size: cover;
+    background-position: top;
+    transition: transform 0.3s;
+}
+
+.card-project-small:hover .project-mini-img {
+    transform: scale(1.05);
+}
+
+.card-project-small h4 {
+    margin: 15px 15px 5px;
+    font-size: 1.1rem;
+}
+
+.mini-desc {
+    margin: 0 15px 15px;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.project-tag.blue {
+    background: var(--primary-blue);
+}
+
+.project-tag.pink {
+    background: var(--primary-pink);
+}
+
+.project-tag.purple {
+    background: #9d4edd;
+}
+
+.project-tag.green {
+    background: #00b894;
+}
+
+
+/* 7. Github (Col 1-2, Row 3) */
+.card-social-github {
+    grid-column: span 2;
+    background: #24292e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.card-social-github:hover {
+    background: #000;
+}
+
+/* 8. Contact CTA (Col 3-4, Row 3) */
+.card-contact-cta {
+    grid-column: span 2;
+    background: linear-gradient(45deg, var(--primary-blue), #6dd5ed);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.card-contact-cta h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.btn-disk {
+    background: white;
+    color: var(--primary-blue);
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* RESPONSIVE CSS */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .bento-grid-vibrant {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        /* Allow auto height */
+    }
+
+    /* Force full width or half width for specific cards */
+    .card-identity-pro {
+        grid-column: span 2;
+    }
+
+    .card-project-main {
+        grid-column: span 2;
+        height: 300px;
+    }
+
+    .card-project-small {
+        grid-column: span 1;
+        height: 250px;
+    }
+
+    .card-social-github {
+        grid-column: span 1;
+    }
+
+    .card-contact-cta {
+        grid-column: span 1;
+        padding: 20px;
+    }
+
+    .card-contact-cta h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .bento-grid-vibrant {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* All cards full width */
+    .card-identity-pro,
+    .card-project-main,
+    .card-project-small,
+    .card-social-github,
+    .card-contact-cta {
+        grid-column: 1 / -1;
+    }
+
+    .card-project-main {
+        height: 250px;
+    }
+
+    .card-project-small {
+        height: auto;
+        min-height: 220px;
+    }
+
+    .pro-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .pro-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stat-box {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .card-contact-cta {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
